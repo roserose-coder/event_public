@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="event_public.action_window">
+          <field name="name">event_public window</field>
+          <field name="res_model">event_public.model_event</field>
+          <field name="view_mode">tree,form</field>
+        </record>
+          <menuitem name="event_public" id="event_public.menu_root"  action="event_public.action_window" />
+    </data>
+</odoo>

@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+          <template id="assets_frontend" inherit_id="web.assets_frontend">
+             <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/css" href="/event_public/static/src/css/stars.css"/>
+             </xpath>
+         </template>
+    </data>
+</odoo>

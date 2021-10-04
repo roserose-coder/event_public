@@ -1,0 +1,21 @@
+<odoo>
+  <data>
+
+
+
+      <record id="model_event_form_view_inh" model="ir.ui.view">
+        <field name="name">event_public.model_event.form.view</field>
+        <field name="model">event_public.model_event</field>
+        <field name="inherit_id" ref="event_public.form"/>
+        <field name="arch" type="xml">
+            <field name="end_time" position="after">
+                <field name="room_id"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="price"/>
+                <field name="total_price"/>
+            </field>
+        </field>
+    </record>
+
+  </data>
+</odoo>

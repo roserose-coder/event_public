@@ -1,0 +1,105 @@
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="event_public.action_window">
+          <field name="name">event_public window</field>
+          <field name="res_model">event_public.model_event</field>
+          <field name="view_mode">tree,form,calendar</field>
+        </record>
+          <record model="ir.ui.view" id="event_public.tree">
+              <field name="name">event_public tree</field>
+              <field name="model">event_public.model_event</field>
+              <field name="arch" type="xml">
+                  <tree>
+
+                      <field name="event_name"/>
+                      <field name="start_time"/>
+                      <field name="end_time"/>
+                  </tree>
+
+              </field>
+            </record>
+
+         <record model="ir.ui.view" id="event_public.form">
+              <field name="name">event_public form</field>
+              <field name="model">event_public.model_event</field>
+              <field name="arch" type="xml">
+                <form>
+
+                  <sheet>
+
+                      <group>
+                          <field name="event_image"  widget="image" />
+                          <field name="event_name"/>
+
+                      </group>
+
+                      <group>
+                          <field name="start_time"/>
+                          <field name="end_time"/>
+                      </group>
+                       <group>
+                          <notebook>
+                              <page string="Speaker">
+                                  <field name="speaker">
+                                      <tree>
+                                          <field name="name"/>
+                                      </tree>
+                                  </field>
+
+                              </page>
+
+                              <page string="Attendance">
+                                  <field name="attendance">
+                                      <tree>
+                                          <field name="name"/>
+                                          <field name="street"/>
+                                          <field name="phone"/>
+                                      </tree>
+                                  </field>
+                              </page>
+
+
+                          </notebook>
+                      </group>
+                      <group>
+                          <field name="description"/>
+                      </group>
+                  </sheet>
+
+                </form>
+              </field>
+            </record>
+        <record id="event_public.search" model="ir.ui.view">
+           <field name="name">event_public search</field>
+           <field name="model">event_public.model_event</field>
+           <field name="arch" type="xml">
+              <search string="Search Event">
+                 <field name="event_name"/>
+                 <filter string="Upcoming Event"  name="upcoming_event" domain="[('start_time', '&gt;=', datetime.datetime.now())]"/>
+                 <searchpanel>
+                      <field name="speaker" icon="fa fa-list" select="multi"/>
+                      <field name="attendance" icon="fa fa-list" select="multi"/>
+                 </searchpanel>
+              </search>
+           </field>
+        </record>
+        <record id="event_public.calendar" model="ir.ui.view">
+                <field name="name">event_public calendar</field>
+                <field name="model">event_public.model_event</field>
+                <field name="arch" type="xml">
+
+                    <calendar
+                            string="Event details"
+                            date_start="start_time"
+                            date_stop="end_time"
+                            event_open_popup="true"
+                            mode="day"
+                            quick_add="True">
+                        <field name="event_name"/>
+
+                    </calendar>
+                </field>
+        </record>
+          <menuitem name="event_public" id="event_public.menu_root"  action="event_public.action_window" />
+    </data>
+</odoo>

@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+         <record model="ir.actions.act_window" id="event_public.action_window_partner">
+          <field name="name">event_public window partner</field>
+          <field name="res_model">res.partner</field>
+          <field name="view_mode">kanban,form</field>
+        </record>
+         <record model="ir.ui.view" id="view_partner_form">
+            <field name="name">res.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+
+                <notebook position="inside">
+                    <page string="Listed Events">
+                        <field name="event_id" colspan="4" nolabel="1"/>
+<!--                            <field name="event_name"/>-->
+<!--                            <field name="start_time"/>-->
+<!--                            <field name="end_time"/>-->
+<!--                        </field>-->
+                    </page>
+
+
+                </notebook>
+            </field>
+        </record>
+
+
+        <menuitem
+            name="Partner List"
+            id="event_public.menu_partner"
+            parent="event_public.menu_root"
+            action ="event_public.action_window_partner"
+            sequence ="1"/>
+    </data>
+</odoo>
