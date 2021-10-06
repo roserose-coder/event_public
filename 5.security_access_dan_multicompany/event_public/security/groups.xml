@@ -1,5 +1,6 @@
 <odoo>
-		    <function name="write" model="ir.model.data">
+
+      <function name="write" model="ir.model.data">
         <function name="search" model="ir.model.data">
             <value
                 eval="[('module', '=', 'base'), ('name', '=', 'group_user')]" />
@@ -8,10 +9,8 @@
         </function>
             <value eval="{'noupdate': False}" />
         </function>
-        
-		
-		
-		<record id="group_head_of_event" model="res.groups">
+
+        <record id="group_head_of_event" model="res.groups">
                 <field name="name">Head of Event</field>
                 <field name="category_id" ref="base.module_category_customization"/>
 
@@ -20,20 +19,15 @@
          <record id="group_staff_of_event" model="res.groups">
                 <field name="name">Staff of Event</field>
                 <field name="category_id" ref="base.module_category_customization"/>
-
         </record>
-
-
         <record id="base.group_user" model="res.groups">
             <field name="implied_ids" eval="[(4, ref('event_public.group_staff_of_event'))]"/>
         </record>
-
-
         <record id="base.group_system" model="res.groups">
             <field name="implied_ids" eval="[(4, ref('event_public.group_head_of_event'))]"/>
         </record>
 
-        <record model="ir.rule" id="event_public_staff_rule">
+       <record model="ir.rule" id="event_public_staff_rule">
          <field name="name">Public Events: capable of modifying only their own events</field>
          <field name="model_id" ref="model_event_public_model_event"/>
          <field name="groups"  eval="[(4, ref('event_public.group_staff_of_event'))]"/>
@@ -43,7 +37,8 @@
         <field name="perm_read">1</field>
          <field name="perm_create">1</field>
     </record>
-    <record model="ir.rule" id="event_public_staff_rule_2">
+
+     <record model="ir.rule" id="event_public_staff_rule_2">
          <field name="name">Public Events: capable of modifying only their own events(2)</field>
          <field name="model_id" ref="model_event_public_model_event"/>
          <field name="groups"  eval="[(4, ref('event_public.group_staff_of_event'))]"/>
@@ -78,5 +73,4 @@
              ('company_id', 'in', company_ids)
              ]</field>
      </record>
-
 </odoo>

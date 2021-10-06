@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+acl_model_event_head_of_event,event_public.model_event,model_event_public_model_event,event_public.group_head_of_event,1,1,1,1
+acl_model_event_staff_of_event,event_public.model_event,model_event_public_model_event,event_public.group_staff_of_event,1,1,1,1
+
+acl_model_event_all,event_public.model_event_stage,model_event_public_model_event_stage,,1,1,1,1
+
