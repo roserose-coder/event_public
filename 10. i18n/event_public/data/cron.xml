@@ -1,0 +1,13 @@
+<odoo>
+       <record  id="ir_cron_event_public" model="ir.cron">
+        <field name="name">event_public_change_state</field>
+        <field name="model_id" ref="model_event_public_model_event"/>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="code">model._check_overdue()</field>
+
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+    </record>
+</odoo>
